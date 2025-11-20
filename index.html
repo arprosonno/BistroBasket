@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bistro Basket — Menu & Order</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="overlay">
+    <header class="topbar">
+      <div class="brand">
+        <h1>🍽 Bistro Basket</h1>
+        <p class="tag">Warm food. Warm hearts.</p>
+      </div>
+
+      <nav class="nav">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#menu" class="nav-link">Menu</a>
+        <a href="#cart" class="nav-link">Cart</a>
+        <a href="#about" class="nav-link">About</a>
+      </nav>
+
+      <div class="auth-area">
+        <span id="welcomeTxt" class="welcome" hidden>Welcome, <b id="usernameShow"></b></span>
+        <button id="authBtn" class="chip">Login / Sign Up</button>
+        <button id="logoutBtn" class="chip" style="display:none">Logout</button>
+      </div>
+    </header>
+
+    <main>
+      <!-- HERO -->
+      <section id="home" class="hero">
+        <h2>Welcome to Bistro Basket</h2>
+        <p class="lead">Handmade meals, soft lights, and a little magic in every bite.</p>
+        <a class="cta" href="#menu" onclick="scrollToSection('menu')">Explore Menu</a>
+      </section>
+
+      <!-- MENU -->
+      <section id="menu" class="section">
+        <h2>Our Menu</h2>
+        <div id="menuGrid" class="menu-grid">
+          <!-- menu cards injected here -->
+        </div>
+        <div id="menuMessage" class="muted"></div>
+      </section>
+
+      <!-- CART -->
+      <section id="cart" class="section">
+        <h2>Your Cart</h2>
+        <div id="cartBox" class="cart-box">
+          <!-- cart items -->
+        </div>
+        <div class="cart-actions">
+          <div id="cartTotal" class="cart-total">Total: $0.00</div>
+          <div>
+            <button id="checkoutBtn" class="button">Checkout</button>
+          </div>
+        </div>
+        <div id="checkoutMsg" class="muted"></div>
+      </section>
+
+     <section class="feedback">
+  <h2>We’d Love Your Feedback!</h2>
+  <p>Your thoughts help us improve — please share your feedback below.</p>
+
+  <form action="https://formsubmit.co/issacprosonno@gmail.com" method="POST">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://yourwebsite.com/thankyou.html">
+
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+
+    <button type="submit">Send Feedback</button>
+  </form>
+
+  <p id="feedbackMsg"></p>
+</section>
+
+      <!-- ABOUT -->
+      <section id="about" class="section about">
+        <h2>About</h2>
+        <p>Made with ❤️ by Epic Byte Studio.</p>
+      </section>
+    </main>
+
+    <footer>
+      <small>All rights reserved by Epic Byte Studio </small>
+    </footer>
+  </div>
+
+  <!-- Food Details Modal -->
+  <div id="foodModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeFoodModal()">✕</button>
+      <div id="foodModalBody"></div>
+    </div>
+  </div>
+
+  <!-- Auth Modal (Login / SignUp) -->
+  <div id="authModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeAuthModal()">✕</button>
+
+      <div class="auth-tabs">
+        <button id="tabLogin" class="tab active" onclick="showAuthTab('login')">Login</button>
+        <button id="tabSignup" class="tab" onclick="showAuthTab('signup')">Sign Up</button>
+      </div>
+
+      <div id="loginForm" class="auth-panel">
+        <form id="formLogin">
+          <input name="phone" placeholder="Phone number" required />
+          <input name="password" type="password" placeholder="Password" required />
+          <button type="submit" class="button">Login</button>
+          <div id="loginMsg" class="muted"></div>
+        </form>
+      </div>
+
+      <div id="signupForm" class="auth-panel" style="display:none">
+        <form id="formSignup">
+          <input name="name" placeholder="Full name" required />
+          <input name="phone" placeholder="Phone number" required />
+          <input name="email" placeholder="Email (optional)" />
+          <input name="password" type="password" placeholder="Password" required />
+          <button type="submit" class="button">Create account</button>
+          <div id="signupMsg" class="muted"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
